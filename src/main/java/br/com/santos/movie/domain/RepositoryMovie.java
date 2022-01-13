@@ -8,5 +8,4 @@ public interface RepositoryMovie {
 
 	 void insert(List<Movie> list);
 	 List<Movie> listWinners();
-	 List<Movie> findAll();
 }

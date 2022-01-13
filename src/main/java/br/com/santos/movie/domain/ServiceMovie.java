@@ -9,6 +9,7 @@ public interface ServiceMovie {
 
 	void insert(List<Movie> list);
 	List<MovieWinner> listWinners();
-	List<Movie> findAll();
+	List<MovieWinner> listWinnerMin(List<MovieWinner> list);
+	List<MovieWinner> listWinnerMax(List<MovieWinner> list);
 	 
 }

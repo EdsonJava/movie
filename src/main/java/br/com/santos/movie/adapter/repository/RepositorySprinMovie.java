@@ -12,8 +12,10 @@ import br.com.santos.movie.adapter.repository.model.EntityMovie;
 public interface RepositorySprinMovie extends JpaRepository<EntityMovie, Long> {
 
 	
-	@Query(value = "select em from EntityMovie em where exists (select 1,  count(m.producers) from EntityMovie m "
-			+ "where em.producers = m.producers and m.winner = 'yes' group by m.producers having count(m.producers) > 1 )")
-	List<EntityMovie>  listWinners();
+	@Query(value = "select em from EntityMovie em where exists (select 1,  "
+			+ "count(m.producers) from EntityMovie m "
+			+ "where em.producers = m.producers and m.winner = 'yes' "
+			+ "group by m.producers having count(m.producers) > 1 )")
+	List<EntityMovie> listWinners();
 	
 }

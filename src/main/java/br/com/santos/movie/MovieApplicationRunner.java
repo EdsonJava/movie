@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 import br.com.santos.movie.adapter.infra.ReadFileUtils;
@@ -11,6 +12,7 @@ import br.com.santos.movie.domain.ServiceMovie;
 import br.com.santos.movie.domain.model.Movie;
 import lombok.AllArgsConstructor;
 
+@Profile("!test")
 @Component
 @AllArgsConstructor
 public class MovieApplicationRunner implements CommandLineRunner {

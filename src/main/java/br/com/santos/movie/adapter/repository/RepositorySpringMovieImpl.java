@@ -39,12 +39,4 @@ public class RepositorySpringMovieImpl implements RepositoryMovie {
 		return list;
 	}
 
-	@Override
-	public List<Movie> findAll() {
-		
-		return repositorySprinMovie.findAll()
-				.stream()
-				.map(EntityMovie::convertToMovie)
-				.collect(Collectors.toList());
-	}
 }

@@ -26,31 +26,27 @@ public class ServiceMovieImpl implements ServiceMovie {
 	@Override
 	public List<MovieWinner> listWinners() {
 			
-		var listFinal = new ArrayList<MovieWinner>();
 		var list = repositoryMovie.listWinners();
-		
 		var listAll = mountListMovieWinner(list);
+		listAll.forEach(item ->System.out.println(item));
+		
 		listAll.sort((o1, o2) -> o1.getInterval().compareTo(o2.getInterval()));
-		
-		var listMinInterval = minInterval(listAll);
-		var listMaxInterval = maxInterval(listAll);
-		
-		listFinal.add(listMinInterval);
-		listFinal.add(listMaxInterval);
-		return listFinal;
+		return listAll;
 	}
 
-	private MovieWinner  maxInterval(List<MovieWinner> listAll) {
+	private List<MovieWinner>  maxInterval(List<MovieWinner> listAll) {
 		
+		List<MovieWinner> minMovie = new ArrayList<MovieWinner>();
 		Comparator<MovieWinner> comparator = Comparator.comparing( MovieWinner::getInterval);
-		MovieWinner minMovie = listAll.stream().min(comparator).get();
+		minMovie.add(listAll.stream().max(comparator).get());
 		return minMovie;
 	}
 
-	private MovieWinner minInterval(List<MovieWinner> listAll) {
+	private List<MovieWinner>  minInterval(List<MovieWinner> listAll) {
 		
+		List<MovieWinner> maxMovie = new ArrayList<MovieWinner>();
 		Comparator<MovieWinner> comparator = Comparator.comparing( MovieWinner::getInterval);
-		MovieWinner maxMovie = listAll.stream().max(comparator).get();
+		maxMovie.add(listAll.stream().min(comparator).get());
 		return maxMovie;
 	}
 
@@ -62,7 +58,6 @@ public class ServiceMovieImpl implements ServiceMovie {
 		Comparator<Movie> comparator = Comparator.comparing( Movie::getYear);
 		
 		if(!listWinner.isEmpty()) {
-			MovieWinner mw = new MovieWinner();
 			listWinner.forEach( w -> {
 				var moviesWinners = list
 									.stream()
@@ -71,7 +66,8 @@ public class ServiceMovieImpl implements ServiceMovie {
 				
 				Movie minMovie = moviesWinners.stream().min(comparator).get();
 				Movie maxMovie = moviesWinners.stream().max(comparator).get();
-				
+			
+				MovieWinner mw = new MovieWinner();
 				if(minMovie.getId() !=null && maxMovie != null) {
 					mw.setProducer(w.getProducers());	
 					mw.setPreviousWin(minMovie.getYear());
@@ -89,9 +85,16 @@ public class ServiceMovieImpl implements ServiceMovie {
 	}
 
 	@Override
-	public List<Movie> findAll() {
+	public List<MovieWinner> listWinnerMin(List<MovieWinner> list) {
 		
-		return repositoryMovie.findAll();
+		var min = minInterval(list);	
+		return min;
 	}
 
+	@Override
+	public List<MovieWinner> listWinnerMax(List<MovieWinner> list) {
+	
+		var max = maxInterval(list);
+		return max;
+	}
 }
