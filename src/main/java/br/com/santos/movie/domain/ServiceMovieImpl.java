@@ -1,4 +1,4 @@
-package br.com.santos.filme.domain;
+package br.com.santos.movie.domain;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -7,8 +7,8 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
-import br.com.santos.filme.domain.model.Movie;
-import br.com.santos.filme.domain.model.MovieWinner;
+import br.com.santos.movie.domain.model.Movie;
+import br.com.santos.movie.domain.model.MovieWinner;
 import lombok.AllArgsConstructor;
 
 @Service
@@ -86,6 +86,12 @@ public class ServiceMovieImpl implements ServiceMovie {
 			});
 		}
 		return listMovieWinner;
+	}
+
+	@Override
+	public List<Movie> findAll() {
+		
+		return repositoryMovie.findAll();
 	}
 
 }

@@ -1,4 +1,4 @@
-package br.com.santos.filme.adapter.repository;
+package br.com.santos.movie.adapter.repository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,9 +6,9 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Component;
 
-import br.com.santos.filme.adapter.repository.model.EntityMovie;
-import br.com.santos.filme.domain.RepositoryMovie;
-import br.com.santos.filme.domain.model.Movie;
+import br.com.santos.movie.adapter.repository.model.EntityMovie;
+import br.com.santos.movie.domain.RepositoryMovie;
+import br.com.santos.movie.domain.model.Movie;
 import lombok.AllArgsConstructor;
 
 @Component
@@ -39,8 +39,12 @@ public class RepositorySpringMovieImpl implements RepositoryMovie {
 		return list;
 	}
 
-
-	
-
-	
+	@Override
+	public List<Movie> findAll() {
+		
+		return repositorySprinMovie.findAll()
+				.stream()
+				.map(EntityMovie::convertToMovie)
+				.collect(Collectors.toList());
+	}
 }

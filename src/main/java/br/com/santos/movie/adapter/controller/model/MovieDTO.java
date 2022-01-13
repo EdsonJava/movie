@@ -1,9 +1,9 @@
-package br.com.santos.filme.adapter.controller.model;
+package br.com.santos.movie.adapter.controller.model;
 
 import org.modelmapper.ModelMapper;
 
-import br.com.santos.filme.domain.model.Movie;
-import br.com.santos.filme.domain.model.MovieWinner;
+import br.com.santos.movie.domain.model.Movie;
+import br.com.santos.movie.domain.model.MovieWinner;
 import lombok.Builder;
 import lombok.Data;
 

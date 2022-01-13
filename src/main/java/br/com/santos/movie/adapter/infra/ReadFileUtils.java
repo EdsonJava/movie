@@ -1,4 +1,4 @@
-package br.com.santos.filme.adapter.infra;
+package br.com.santos.movie.adapter.infra;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

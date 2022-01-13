@@ -1,4 +1,4 @@
-package br.com.santos.filme;
+package br.com.santos.movie;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,9 +6,9 @@ import java.util.List;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import br.com.santos.filme.adapter.infra.ReadFileUtils;
-import br.com.santos.filme.domain.ServiceMovie;
-import br.com.santos.filme.domain.model.Movie;
+import br.com.santos.movie.adapter.infra.ReadFileUtils;
+import br.com.santos.movie.domain.ServiceMovie;
+import br.com.santos.movie.domain.model.Movie;
 import lombok.AllArgsConstructor;
 
 @Component
