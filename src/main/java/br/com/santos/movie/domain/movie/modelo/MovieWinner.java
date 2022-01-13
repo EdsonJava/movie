@@ -1,4 +1,4 @@
-package br.com.santos.movie.domain.model;
+package br.com.santos.movie.domain.movie.modelo;
 
 import lombok.Data;
 

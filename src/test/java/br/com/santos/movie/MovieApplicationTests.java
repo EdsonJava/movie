@@ -8,9 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 
-import br.com.santos.movie.adapter.controller.RestMovies;
-import br.com.santos.movie.adapter.repository.RepositorySpringMovieImpl;
-import br.com.santos.movie.domain.model.Movie;
+import br.com.santos.movie.adapter.movie.controller.RestMovies;
+import br.com.santos.movie.adapter.movie.repository.RepositorySpringMovieImpl;
+import br.com.santos.movie.domain.movie.modelo.Movie;
 
 @ActiveProfiles("test")
 @SpringBootTest

@@ -1,4 +1,4 @@
-package br.com.santos.movie.domain;
+package br.com.santos.movie.domain.movie;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -7,8 +7,8 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
-import br.com.santos.movie.domain.model.Movie;
-import br.com.santos.movie.domain.model.MovieWinner;
+import br.com.santos.movie.domain.movie.modelo.Movie;
+import br.com.santos.movie.domain.movie.modelo.MovieWinner;
 import lombok.AllArgsConstructor;
 
 @Service

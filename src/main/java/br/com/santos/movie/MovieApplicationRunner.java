@@ -8,8 +8,8 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 import br.com.santos.movie.adapter.infra.ReadFileUtils;
-import br.com.santos.movie.domain.ServiceMovie;
-import br.com.santos.movie.domain.model.Movie;
+import br.com.santos.movie.domain.movie.ServiceMovie;
+import br.com.santos.movie.domain.movie.modelo.Movie;
 import lombok.AllArgsConstructor;
 
 @Profile("!test")

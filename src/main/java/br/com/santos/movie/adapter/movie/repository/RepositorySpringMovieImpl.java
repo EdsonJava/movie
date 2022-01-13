@@ -1,4 +1,4 @@
-package br.com.santos.movie.adapter.repository;
+package br.com.santos.movie.adapter.movie.repository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,9 +6,9 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Component;
 
-import br.com.santos.movie.adapter.repository.model.EntityMovie;
-import br.com.santos.movie.domain.RepositoryMovie;
-import br.com.santos.movie.domain.model.Movie;
+import br.com.santos.movie.adapter.movie.repository.model.EntityMovie;
+import br.com.santos.movie.domain.movie.RepositoryMovie;
+import br.com.santos.movie.domain.movie.modelo.Movie;
 import lombok.AllArgsConstructor;
 
 @Component

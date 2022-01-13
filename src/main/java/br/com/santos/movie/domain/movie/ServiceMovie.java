@@ -1,9 +1,9 @@
-package br.com.santos.movie.domain;
+package br.com.santos.movie.domain.movie;
 
 import java.util.List;
 
-import br.com.santos.movie.domain.model.Movie;
-import br.com.santos.movie.domain.model.MovieWinner;
+import br.com.santos.movie.domain.movie.modelo.Movie;
+import br.com.santos.movie.domain.movie.modelo.MovieWinner;
 
 public interface ServiceMovie {
 

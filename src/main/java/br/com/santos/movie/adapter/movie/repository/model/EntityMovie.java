@@ -1,4 +1,4 @@
-package br.com.santos.movie.adapter.repository.model;
+package br.com.santos.movie.adapter.movie.repository.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 import org.modelmapper.ModelMapper;
 
-import br.com.santos.movie.domain.model.Movie;
+import br.com.santos.movie.domain.movie.modelo.Movie;
 import lombok.Data;
 
 @Data

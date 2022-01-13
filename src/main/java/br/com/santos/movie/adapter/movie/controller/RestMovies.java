@@ -1,4 +1,4 @@
-package br.com.santos.movie.adapter.controller;
+package br.com.santos.movie.adapter.movie.controller;
 
 import java.util.stream.Collectors;
 
@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.santos.movie.adapter.controller.model.MovieDTO;
-import br.com.santos.movie.adapter.controller.model.Root;
-import br.com.santos.movie.domain.ServiceMovie;
+import br.com.santos.movie.adapter.movie.controller.model.MovieDTO;
+import br.com.santos.movie.adapter.movie.controller.model.Root;
+import br.com.santos.movie.domain.movie.ServiceMovie;
 import lombok.AllArgsConstructor;
 
 @RequestMapping("/movies")

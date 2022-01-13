@@ -1,4 +1,4 @@
-package br.com.santos.movie.adapter.controller.model;
+package br.com.santos.movie.adapter.movie.controller.model;
 
 import java.util.List;
 
