@@ -27,27 +27,34 @@ public class ServiceMovieImpl implements ServiceMovie {
 	public List<MovieWinner> listWinners() {
 			
 		var list = repositoryMovie.listWinners();
-		var listAll = mountListMovieWinner(list);
-		listAll.forEach(item ->System.out.println(item));
-		
+		var listAll = mountListMovieWinner(list);	
 		listAll.sort((o1, o2) -> o1.getInterval().compareTo(o2.getInterval()));
+	
 		return listAll;
 	}
 
 	private List<MovieWinner>  maxInterval(List<MovieWinner> listAll) {
 		
-		List<MovieWinner> minMovie = new ArrayList<MovieWinner>();
-		Comparator<MovieWinner> comparator = Comparator.comparing( MovieWinner::getInterval);
-		minMovie.add(listAll.stream().max(comparator).get());
-		return minMovie;
+		Comparator<MovieWinner> comparator = Comparator.comparing(MovieWinner::getInterval);
+		MovieWinner min = listAll.stream().max(comparator).get();		
+		
+		return listAll
+				.stream()
+				.filter(mov -> mov.getInterval().equals(min.getInterval()))
+				.collect(Collectors.toList());
 	}
 
 	private List<MovieWinner>  minInterval(List<MovieWinner> listAll) {
 		
-		List<MovieWinner> maxMovie = new ArrayList<MovieWinner>();
-		Comparator<MovieWinner> comparator = Comparator.comparing( MovieWinner::getInterval);
-		maxMovie.add(listAll.stream().min(comparator).get());
-		return maxMovie;
+	
+		Comparator<MovieWinner> comparator = Comparator.comparing(MovieWinner::getInterval);
+		MovieWinner max = listAll.stream().min(comparator).get();		
+		
+		return listAll
+				.stream()
+				.filter(mov -> mov.getInterval().equals(max.getInterval()))
+				.collect(Collectors.toList());
+
 	}
 
 	private List<MovieWinner> mountListMovieWinner(List<Movie> list) {

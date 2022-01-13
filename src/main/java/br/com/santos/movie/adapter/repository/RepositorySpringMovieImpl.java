@@ -18,13 +18,13 @@ public class RepositorySpringMovieImpl implements RepositoryMovie {
 	private RepositorySprinMovie repositorySprinMovie;
 
 	@Override
-	public void insert(List<Movie> list) {
+	public List<EntityMovie> insert(List<Movie> list) {
 		
 		List<EntityMovie> listEntity = new ArrayList<EntityMovie>();				
 		list.forEach(item ->{
 			listEntity.add(EntityMovie.convertToEntityMovie(item));
 		});
-		repositorySprinMovie.saveAll(listEntity);
+		return repositorySprinMovie.saveAll(listEntity);
 		
 	}
 

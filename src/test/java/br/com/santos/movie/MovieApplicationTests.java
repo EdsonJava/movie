@@ -31,22 +31,36 @@ class MovieApplicationTests {
 		var listMovies = new ArrayList<Movie>();
 		
 		Movie movie = new Movie();
+		movie.setProducers("Pedro Santos");
+		movie.setStudios("Cannon Films");
+		movie.setTitle("Disco");
+		movie.setWinner("yes");
+		movie.setYear(1985);
+		listMovies.add(movie);
+		
+		movie = new Movie();
+		movie.setProducers("Pedro Santos");
+		movie.setStudios("Cannon Films");
+		movie.setTitle("Teste");
+		movie.setWinner("yes");
+		movie.setYear(1986);
+		listMovies.add(movie);
+		
+		movie = new Movie();
 		movie.setProducers("Bo Derek");
 		movie.setStudios("Cannon Films");
 		movie.setTitle("Bolero");
 		movie.setWinner("yes");
-		movie.setYear(1984);
+		movie.setYear(1985);
 		listMovies.add(movie);
-		
 		
 		movie = new Movie();
 		movie.setProducers("Bo Derek");
 		movie.setStudios("Triumph Releasing");
 		movie.setTitle("Ghosts Can't Do It");
 		movie.setWinner("yes");
-		movie.setYear(1990);
+		movie.setYear(1986);
 		listMovies.add(movie);
-		
 		
 		movie = new Movie();
 		movie.setProducers("Edson Bernardo");
@@ -61,9 +75,8 @@ class MovieApplicationTests {
 		movie.setStudios("Cannon Films");
 		movie.setTitle("Bolero");
 		movie.setWinner("yes");
-		movie.setYear(1999);
+		movie.setYear(1990);
 		listMovies.add(movie);
-		
 		
 		movie = new Movie();
 		movie.setProducers("Allan Carr");
@@ -73,9 +86,16 @@ class MovieApplicationTests {
 		movie.setYear(1990);
 		listMovies.add(movie);
 		
-		 repositorySpringMovieImpl.insert(listMovies);
-		 Integer countMovie = (restMovies.listWinners().getBody().size());
-		 Assertions.assertEquals(2, countMovie);
+		
+		 Integer counInsert =  repositorySpringMovieImpl.insert(listMovies).size();
+		 Assertions.assertEquals(7, counInsert);
 		 
+		 var listMin = restMovies.listWinners().getBody().getMin();	 
+		 Integer countMin = listMin.size();
+		 Assertions.assertEquals(2, countMin);
+		 
+		 var listMax = restMovies.listWinners().getBody().getMax();	 
+		 Integer countMax = listMax.size();
+		 Assertions.assertEquals(1, countMax);
 	}
 }
