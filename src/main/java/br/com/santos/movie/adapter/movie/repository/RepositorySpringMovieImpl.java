@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 import br.com.santos.movie.adapter.movie.repository.model.EntityMovie;
 import br.com.santos.movie.domain.movie.RepositoryMovie;
-import br.com.santos.movie.domain.movie.modelo.Movie;
+import br.com.santos.movie.domain.movie.model.Movie;
 import lombok.AllArgsConstructor;
 
 @Component

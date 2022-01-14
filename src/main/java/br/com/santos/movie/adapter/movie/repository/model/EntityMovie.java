@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 import org.modelmapper.ModelMapper;
 
-import br.com.santos.movie.domain.movie.modelo.Movie;
+import br.com.santos.movie.domain.movie.model.Movie;
 import lombok.Data;
 
 @Data

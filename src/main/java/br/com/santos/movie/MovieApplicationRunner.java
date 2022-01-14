@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 import br.com.santos.movie.adapter.infra.ReadFileUtils;
 import br.com.santos.movie.domain.movie.ServiceMovie;
-import br.com.santos.movie.domain.movie.modelo.Movie;
+import br.com.santos.movie.domain.movie.model.Movie;
 import lombok.AllArgsConstructor;
 
 @Profile("!test")

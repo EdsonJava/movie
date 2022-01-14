@@ -10,7 +10,8 @@ import org.springframework.test.context.ActiveProfiles;
 
 import br.com.santos.movie.adapter.movie.controller.RestMovies;
 import br.com.santos.movie.adapter.movie.repository.RepositorySpringMovieImpl;
-import br.com.santos.movie.domain.movie.modelo.Movie;
+import br.com.santos.movie.domain.movie.model.Movie;
+
 
 @ActiveProfiles("test")
 @SpringBootTest

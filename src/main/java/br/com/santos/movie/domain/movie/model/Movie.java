@@ -1,4 +1,4 @@
-package br.com.santos.movie.domain.movie.modelo;
+package br.com.santos.movie.domain.movie.model;
 
 import java.util.Objects;
 

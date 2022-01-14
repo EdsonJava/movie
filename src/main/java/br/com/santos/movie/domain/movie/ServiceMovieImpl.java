@@ -8,8 +8,8 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
-import br.com.santos.movie.domain.movie.modelo.Movie;
-import br.com.santos.movie.domain.movie.modelo.MovieWinner;
+import br.com.santos.movie.domain.movie.model.Movie;
+import br.com.santos.movie.domain.movie.model.MovieWinner;
 import lombok.AllArgsConstructor;
 
 @Service

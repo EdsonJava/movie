@@ -1,6 +1,6 @@
 package br.com.santos.movie.adapter.movie.controller.model;
 
-import br.com.santos.movie.domain.movie.modelo.MovieWinner;
+import br.com.santos.movie.domain.movie.model.MovieWinner;
 import lombok.Builder;
 import lombok.Data;
 
