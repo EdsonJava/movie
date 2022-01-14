@@ -12,7 +12,7 @@ da categoria Pior Filme do Golden Raspberry Awards.</p>
 
 ### Para executar o projeto, será necessário instalar os seguintes programas:
 
-- [JDK 11: Necessário para executar o projeto Java](http://www.oracle.com/technetwork/java/javase/downloads/jdk10-downloads-4416644.html)
+- JDK 11: Necessário para executar o projeto Java
 - Maven: Necessário para realizar o build do projeto 
 
 ### Construção
