@@ -1,6 +1,6 @@
 ### Nome do Projeto 
 
-- Movie
+- movie
 
 ### Descrição do Projeto
 
@@ -21,4 +21,11 @@ da categoria Pior Filme do Golden Raspberry Awards.</p>
 - java -jar target/movie-0.0.1-SNAPSHOT.jar
 
   O comando irá baixar todas as dependências do projeto e criar um diretório target com os artefatos construídos, que incluem o arquivo jar do projeto. 
+  
+### Acesso EndPoint
+
+- http://localhost:8080/movies/awards
+
+Obter o produtor com maior intervalo entre dois prêmios consecutivos, e o que
+obteve dois prêmios mais rápido
 
