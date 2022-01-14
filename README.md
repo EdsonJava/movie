@@ -22,7 +22,7 @@ da categoria Pior Filme do Golden Raspberry Awards.</p>
 
   O comando irá baixar todas as dependências do projeto e criar um diretório target com os artefatos construídos, que incluem o arquivo jar do projeto. 
   
-### Acesso EndPoint
+### Acesso Endpoint
 
 - http://localhost:8080/movies/awards
 
