@@ -1,4 +1,4 @@
-package br.com.santos.movie.adapter.movie.repository.model;
+package br.com.santos.movie.domain.movie.modelo.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -38,5 +38,4 @@ public class EntityMovie {
 	public Movie convertToMovie() {
 		return new ModelMapper().map(this, Movie.class);
 	}
-
 }

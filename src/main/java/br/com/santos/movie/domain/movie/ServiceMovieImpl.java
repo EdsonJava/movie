@@ -2,6 +2,7 @@ package br.com.santos.movie.domain.movie;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -28,63 +29,61 @@ public class ServiceMovieImpl implements ServiceMovie {
 			
 		var list = repositoryMovie.listWinners();
 		var listAll = mountListMovieWinner(list);	
-		listAll.sort((o1, o2) -> o1.getInterval().compareTo(o2.getInterval()));
+		listAll.sort(Comparator.comparing(MovieWinner::getInterval));
 	
 		return listAll;
 	}
 
 	private List<MovieWinner>  maxInterval(List<MovieWinner> listAll) {
-		
-		Comparator<MovieWinner> comparator = Comparator.comparing(MovieWinner::getInterval);
-		MovieWinner min = listAll.stream().max(comparator).get();		
-		
-		return listAll
-				.stream()
-				.filter(mov -> mov.getInterval().equals(min.getInterval()))
-				.collect(Collectors.toList());
+
+		return listAll.stream().max(Comparator.comparing(MovieWinner::getInterval))
+				.map(max ->
+					 listAll
+							.stream()
+							.filter(mov -> mov.getInterval().equals(max.getInterval()))
+							.collect(Collectors.toList())
+				).orElse(List.of());
+
 	}
 
 	private List<MovieWinner>  minInterval(List<MovieWinner> listAll) {
-		
-	
-		Comparator<MovieWinner> comparator = Comparator.comparing(MovieWinner::getInterval);
-		MovieWinner max = listAll.stream().min(comparator).get();		
-		
-		return listAll
-				.stream()
-				.filter(mov -> mov.getInterval().equals(max.getInterval()))
-				.collect(Collectors.toList());
 
+
+		return listAll.stream().min(Comparator.comparing(MovieWinner::getInterval))
+				.map(min ->
+						listAll
+								.stream()
+								.filter(mov -> mov.getInterval().equals(min.getInterval()))
+								.collect(Collectors.toList())
+				).orElse(List.of());
 	}
 
 	private List<MovieWinner> mountListMovieWinner(List<Movie> list) {
 		
-		var listWinner = list.stream().collect(Collectors.toSet());
+		var listWinner = new HashSet<>(list);
 		var listMovieWinner = new ArrayList<MovieWinner>();
-		
-		Comparator<Movie> comparator = Comparator.comparing( Movie::getYear);
-		
+
 		if(!listWinner.isEmpty()) {
+			Comparator<Movie> comparator = Comparator.comparing( Movie::getYear);
 			listWinner.forEach( w -> {
 				var moviesWinners = list
 									.stream()
 									.filter(producer -> producer.getProducers().equals(w.getProducers()))
 									.collect(Collectors.toList());
-				
-				Movie minMovie = moviesWinners.stream().min(comparator).get();
-				Movie maxMovie = moviesWinners.stream().max(comparator).get();
+
+				var minMovie = moviesWinners.stream().min(comparator);
+				var maxMovie = moviesWinners.stream().max(comparator);
 			
 				MovieWinner mw = new MovieWinner();
-				if(minMovie.getId() !=null && maxMovie != null) {
+				if(minMovie.isPresent()) {
 					mw.setProducer(w.getProducers());	
-					mw.setPreviousWin(minMovie.getYear());
-					mw.setFollowingWin(maxMovie.getYear());
-					mw.setInterval(maxMovie.getYear() - minMovie.getYear());
+					mw.setPreviousWin(minMovie.get().getYear());
+					mw.setFollowingWin(maxMovie.get().getYear());
+					mw.setInterval(maxMovie.get().getYear() - minMovie.get().getYear());
 					
 					if(mw.getInterval() >= 1 || mw.getInterval() <=99)  {
 						listMovieWinner.add(mw);
 					}
-					
 				}
 			});
 		}
@@ -93,15 +92,13 @@ public class ServiceMovieImpl implements ServiceMovie {
 
 	@Override
 	public List<MovieWinner> listWinnerMin(List<MovieWinner> list) {
-		
-		var min = minInterval(list);	
-		return min;
+
+		return minInterval(list);
 	}
 
 	@Override
 	public List<MovieWinner> listWinnerMax(List<MovieWinner> list) {
-	
-		var max = maxInterval(list);
-		return max;
+
+		return maxInterval(list);
 	}
 }

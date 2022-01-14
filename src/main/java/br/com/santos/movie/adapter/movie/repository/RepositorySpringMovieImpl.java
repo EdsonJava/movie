@@ -18,9 +18,9 @@ public class RepositorySpringMovieImpl implements RepositoryMovie {
 	private RepositorySprinMovie repositorySprinMovie;
 
 	@Override
-	public List<EntityMovie> insert(List<Movie> list) {
+	public List<EntityMovie>  insert(List<Movie> list) {
 		
-		List<EntityMovie> listEntity = new ArrayList<EntityMovie>();				
+		List<EntityMovie> listEntity = new ArrayList<>();
 		list.forEach(item ->{
 			listEntity.add(EntityMovie.convertToEntityMovie(item));
 		});
@@ -30,13 +30,11 @@ public class RepositorySpringMovieImpl implements RepositoryMovie {
 
 	@Override
 	public List<Movie> listWinners() {
-	
-		var list = repositorySprinMovie.listWinners()
+
+		return repositorySprinMovie.listWinners()
 				.stream()
 				.map(EntityMovie::convertToMovie)
 				.collect(Collectors.toList());
-				
-		return list;
 	}
 
 }

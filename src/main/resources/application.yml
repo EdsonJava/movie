@@ -3,7 +3,6 @@ server:
 
 spring:
     jpa:
-     
       hibernate:
         ddl-auto: update
         
@@ -17,8 +16,6 @@ spring:
       
     h2:
       console.enabled: true
-      
- 
 
     application: 
       name: filme

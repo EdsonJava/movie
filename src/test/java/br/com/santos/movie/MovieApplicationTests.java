@@ -85,12 +85,11 @@ class MovieApplicationTests {
 		movie.setWinner("yes");
 		movie.setYear(1990);
 		listMovies.add(movie);
-		
-		
+
 		 Integer counInsert =  repositorySpringMovieImpl.insert(listMovies).size();
 		 Assertions.assertEquals(7, counInsert);
 		 
-		 var listMin = restMovies.listWinners().getBody().getMin();	 
+		 var listMin = restMovies.listWinners().getBody().getMin();
 		 Integer countMin = listMin.size();
 		 Assertions.assertEquals(2, countMin);
 		 

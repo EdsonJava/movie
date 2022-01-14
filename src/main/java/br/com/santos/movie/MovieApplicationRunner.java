@@ -17,21 +17,20 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class MovieApplicationRunner implements CommandLineRunner {
 
-	private final String PATH = "src/main/resources/";
 	private final ServiceMovie serviceMovie;
 
 	@Override
-	public void run(String... args) throws Exception {
+	public void run(String... args) {
 
+		String PATH = "src/main/resources/";
 		List<List<String>> movies = ReadFileUtils.readFileCsv(PATH + "movielist.csv");
 		serviceMovie.insert(createListMovies(movies));
-
 	}
 
 	private List<Movie> createListMovies(List<List<String>> movies) {
 
-		List<Movie> list = new ArrayList<Movie>();
-		Movie m = null;
+		List<Movie> list = new ArrayList<>();
+		Movie m;
 
 		for (int i = 1; i < movies.size(); i++) {
 			m = new Movie();

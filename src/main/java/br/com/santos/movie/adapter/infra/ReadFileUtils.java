@@ -15,7 +15,7 @@ public class ReadFileUtils {
 		String line = "";
 		String csvSeparator = ";";
 		
-		List<List<String>> list = new ArrayList<List<String>>();
+		List<List<String>> list = new ArrayList<>();
 		
 		try {
 			br = new BufferedReader(new FileReader(fileName));
@@ -31,12 +31,10 @@ public class ReadFileUtils {
 				try {
 					br.close();
 				} catch (IOException e) {
-					throw new RuntimeException(e);
+					e.printStackTrace();
 				}
 			}
 		}
-
 		return list;
-	
 	}
 }

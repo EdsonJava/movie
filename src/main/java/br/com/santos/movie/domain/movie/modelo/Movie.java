@@ -35,7 +35,4 @@ public class Movie {
 		Movie other = (Movie) obj;
 		return Objects.equals(producers, other.producers);
 	}
-	
-	
-	
 }

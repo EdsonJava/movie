@@ -1,8 +1,5 @@
 package br.com.santos.movie.adapter.movie.controller.model;
 
-import org.modelmapper.ModelMapper;
-
-import br.com.santos.movie.domain.movie.modelo.Movie;
 import br.com.santos.movie.domain.movie.modelo.MovieWinner;
 import lombok.Builder;
 import lombok.Data;
@@ -23,10 +20,6 @@ public class MovieDTO {
 				.previousWin(movieWinner.getPreviousWin())
 				.followingWin(movieWinner.getFollowingWin())
 				.build();
-	}
-	
-	public Movie convertToMovie() {	
-		return new ModelMapper().map(this, Movie.class);
 	}
 }
 	
