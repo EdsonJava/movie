@@ -14,7 +14,7 @@ public interface RepositorySprinMovie extends JpaRepository<EntityMovie, Long> {
 
 	@Query(value = "select em from EntityMovie em where exists (select 1,  "
 			+ "count(m.producers) from EntityMovie m "
-			+ "where em.producers = m.producers and m.winner = 'yes' "
+			+ "where em.producers = m.producers "
 			+ "group by m.producers having count(m.producers) > 1 )")
 	List<EntityMovie> listWinners();
 	
