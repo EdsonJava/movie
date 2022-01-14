@@ -7,10 +7,10 @@
 - API RestFull, possibilitar a leitura da lista de indicados e vencedores
 da categoria Pior Filme do Golden Raspberry Awards.</p>
 
-- Desenvolvido com framework mvc SpringBoot, Lombok,  para persistencia JPA, arquitetura hexagonal, banco de dados H2, Junit Teste de integração.</p>
+- Desenvolvido com framework mvc SpringBoot, Lombok,  para persistencia JPA, arquitetura hexagonal, banco de dados H2, Junit teste de integração.</p>
 
 
-### Para executar o projeto, será necessário instalar os seguintes programas:
+### Para executar o projeto, será necessário instalar os seguintes programas
 
 - JDK 11: Necessário para executar o projeto Java
 - Maven: Necessário para realizar o build do projeto 
