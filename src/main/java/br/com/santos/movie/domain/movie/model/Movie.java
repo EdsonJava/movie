@@ -1,38 +1,19 @@
 package br.com.santos.movie.domain.movie.model;
 
-import java.util.Objects;
+import java.util.List;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import br.com.santos.movie.domain.producer.model.Producer;
+import br.com.santos.movie.domain.studio.model.Studio;
+import lombok.Data;
 
-@Getter
-@Setter
-@ToString
+@Data
 public class Movie {
-
 
 	private Long id;
 	private Integer year;
 	private String title;
-	private String studios;
-	private String producers;
 	private String winner;
+	private List<Studio> studios;
+	private List<Producer> producers;
 	
-	
-	@Override
-	public int hashCode() {
-		return Objects.hash(producers);
-	}
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Movie other = (Movie) obj;
-		return Objects.equals(producers, other.producers);
-	}
 }

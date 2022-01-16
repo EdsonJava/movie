@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.santos.movie.adapter.movie.controller.model.MovieDTO;
 import br.com.santos.movie.adapter.movie.controller.model.Root;
-import br.com.santos.movie.domain.movie.ServiceMovie;
+import br.com.santos.movie.domain.producer.ServiceProducer;
 import lombok.AllArgsConstructor;
 
 @RequestMapping("/movies")
@@ -17,21 +17,20 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class RestMovies {
 
-	private final ServiceMovie serviceMovie;
+	private final ServiceProducer serviceProducer;
 
 	@GetMapping("/awards")
 	public ResponseEntity<Root> listWinners() {
 
 		Root r = new Root();		
-		var list = serviceMovie.listWinners();
-		
-		var min = serviceMovie.listWinnerMin(list)
+		var list = serviceProducer.findAllWinner();
+		var min = serviceProducer.listWinnerMin(list)
 				.stream()
 				.map(MovieDTO::criar)
 				.collect(Collectors.toList());
 		r.setMin(min);
 		
-		var max = serviceMovie.listWinnerMax(list)
+		var max = serviceProducer.listWinnerMax(list)
 				.stream()
 				.map(MovieDTO::criar)
 				.collect(Collectors.toList());

@@ -7,6 +7,6 @@ import br.com.santos.movie.domain.movie.model.Movie;
 
 public interface RepositoryMovie {
 
-	 List<EntityMovie> insert(List<Movie> list);
-	 List<Movie> listWinners();
+	List<EntityMovie>  insert(List<Movie> list);
+
 }
