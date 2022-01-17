@@ -89,7 +89,8 @@ class MovieApplicationTests {
 		Assertions.assertEquals(7, count);
 	}
 
-	private Movie createMovie(Studio studio, Producer producer, String title, String winner, int year) {
+	private Movie createMovie(Studio studio, Producer producer, 
+			String title, String winner, int year) {
 
 		Movie movie = new Movie();
 		var listPro = new ArrayList<Producer>();

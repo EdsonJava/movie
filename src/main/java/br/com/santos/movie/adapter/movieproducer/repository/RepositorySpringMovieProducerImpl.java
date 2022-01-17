@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import br.com.santos.movie.adapter.movieproducer.repository.model.EntityMovieProducer;
 import br.com.santos.movie.domain.movieproducer.RepositoryMovieProducer;
@@ -16,6 +17,7 @@ public class RepositorySpringMovieProducerImpl  implements RepositoryMovieProduc
 
 	RepositorySprinMovieProducer repositorySprinMovieProducer;
 
+	@Transactional
 	@Override
 	public List<MovieProducer> findAllWinners() {
 		

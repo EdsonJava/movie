@@ -35,7 +35,8 @@ public class ServiceMovieProducerImpl implements ServiceMovierProducer {
 		var listMovieWinner = new ArrayList<MovieWinner>();
 
 		if (!listWinner.isEmpty()) {
-			Comparator<MovieProducer> comparator = Comparator.comparing(MovieProducer::getYear);
+			Comparator<MovieProducer> comparator = Comparator
+									.comparing(MovieProducer::getYear);
 			listWinner.forEach( w -> {
 					var moviesWinners = list
 											.stream()
@@ -71,8 +72,11 @@ public class ServiceMovieProducerImpl implements ServiceMovierProducer {
 	public List<MovieWinner> listWinnerMin(List<MovieWinner> list) {
 
 		return list
-				.stream().min(Comparator.comparing(MovieWinner::getInterval)).map(min -> list.stream()
-						.filter(mov -> mov.getInterval().equals(min.getInterval())).collect(Collectors.toList()))
+				.stream().min(Comparator.comparing(
+						MovieWinner::getInterval)).map(min -> list.stream()
+						.filter(mov -> 
+						mov.getInterval().equals(min.getInterval()))
+						.collect(Collectors.toList()))
 				.orElse(List.of());
 	}
 
@@ -80,8 +84,10 @@ public class ServiceMovieProducerImpl implements ServiceMovierProducer {
 	public List<MovieWinner> listWinnerMax(List<MovieWinner> list) {
 
 		return list
-				.stream().max(Comparator.comparing(MovieWinner::getInterval)).map(max -> list.stream()
-						.filter(mov -> mov.getInterval().equals(max.getInterval())).collect(Collectors.toList()))
+				.stream().max(Comparator.comparing(
+						MovieWinner::getInterval)).map(max -> list.stream()
+						.filter(mov -> mov.getInterval().equals(max.getInterval()))
+						.collect(Collectors.toList()))
 				.orElse(List.of());
 
 	}
