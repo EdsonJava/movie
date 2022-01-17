@@ -36,17 +36,7 @@ public class EntityProducer {
 		EntityProducer entityProducer = new EntityProducer();
 		entityProducer.setId(producer.getId());
 		entityProducer.setName(producer.getName());
-		
-		
-		entityProducer.setMovies(producer.getMovies() == null ? null :
-								producer.getMovies());
-		
-		//entityProducer.setMovies(producer.getMovies() == null ? null :
-		//	producer.getMovies()
-		//					.stream()
-		//					.map(EntityMovie::convertToEntityMovie)
-		//					.collect(Collectors.toList()));
-		
+			
 		return entityProducer;
 	}
 
@@ -54,15 +44,7 @@ public class EntityProducer {
 		Producer producer = new Producer();
 		producer.setId(this.getId());
 		producer.setName(this.getName());
-		producer.setMovies(this.getMovies() == null ? null :
-								this.getMovies());
-		
-		//producer.setMovies(this.getMovies() == null ? null :
-		//	this.getMovies()
-		//					.stream()
-		//					.map(EntityMovie::convertToMovie)
-		//					.collect(Collectors.toList()));
-		
+				
 		return producer;
 	}	
 	

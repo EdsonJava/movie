@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -33,12 +34,12 @@ public class EntityMovie {
 	private String title;
 	@Column(name="WINNER")
 	private String winner;
-	@ManyToMany(cascade = CascadeType.MERGE)
+	@ManyToMany(cascade = CascadeType.MERGE,  fetch = FetchType.EAGER)
 	@JoinTable(name="MOVIEPRODUCER",
 	             joinColumns={@JoinColumn(name="MOVIE_ID")},
 	             inverseJoinColumns={@JoinColumn(name="PRODUCER_ID")})
 	private List<EntityProducer> producers;
-	@ManyToMany(cascade = CascadeType.MERGE)
+	@ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
 	@JoinTable(name="MOVIESTUDIO",
 	             joinColumns={@JoinColumn(name="MOVIE_ID")},
 	             inverseJoinColumns={@JoinColumn(name="STUDIO_ID")})
@@ -76,6 +77,9 @@ public class EntityMovie {
 		movie.setTitle(this.getTitle());
 		movie.setWinner(this.getWinner());
 	
+		try {
+			
+	
 		movie.setProducers(this.getProducers() == null  ? null :
 			this.getProducers()
 						.stream()
@@ -88,6 +92,9 @@ public class EntityMovie {
 						.map(EntityStudio::convertToStudio)
 						.collect(Collectors.toList()));
 		
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return movie;
 	}
 

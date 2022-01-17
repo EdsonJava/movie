@@ -1,7 +1,6 @@
 package br.com.santos.movie.adapter.studio.repository.model;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -36,12 +35,6 @@ public class EntityStudio {
 		entityStudio.setId(studio.getId());
 		entityStudio.setName(studio.getName());
 		
-		entityStudio.setMovies(studio.getMovies() == null ? null :
-				studio.getMovies()
-								.stream()
-								.map(EntityMovie::convertToEntityMovie)
-								.collect(Collectors.toList()));
-		
 		return entityStudio;
 	}
 	
@@ -49,12 +42,6 @@ public class EntityStudio {
 		Studio studio = new Studio();
 		studio.setId(this.getId());
 		studio.setName(this.getName());
-		
-		studio.setMovies(this.getMovies() == null ? null :
-					this.getMovies()
-									.stream()
-									.map(EntityMovie::convertToMovie)
-									.collect(Collectors.toList()));
 		
 		return studio;
 	}	

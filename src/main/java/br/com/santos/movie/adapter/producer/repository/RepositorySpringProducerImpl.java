@@ -1,8 +1,5 @@
 package br.com.santos.movie.adapter.producer.repository;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 import org.springframework.stereotype.Component;
 
 import br.com.santos.movie.adapter.producer.repository.model.EntityProducer;
@@ -31,12 +28,4 @@ public class RepositorySpringProducerImpl implements RepositoryProducer{
 			return entity.convertToProducer();
 	}
 
-	@Override
-	public List<Producer> findAllWinner() {
-		
-		return repositorySpringProducer.findAllWinner()
-				.stream()
-				.map(EntityProducer::convertToProducer)
-				.collect(Collectors.toList());
-	}
 }

@@ -2,7 +2,7 @@ package br.com.santos.movie.domain.producer.model;
 
 import java.util.List;
 
-import br.com.santos.movie.adapter.movie.repository.model.EntityMovie;
+import br.com.santos.movie.domain.movie.model.Movie;
 import lombok.Data;
 
 @Data
@@ -10,6 +10,6 @@ public class Producer {
 
 	private Long id;
 	private String name;
-	private List<EntityMovie> movies;
+	private List<Movie> movies;
 	
 }
